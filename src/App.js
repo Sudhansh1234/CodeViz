@@ -26,7 +26,7 @@ export default function App() {
   const [size, setSize] = useState(30);
   const [speed, setSpeed] = useState(80);
   const [target, setTarget] = useState(50);
-  const [running, setRunning] = useState(false);
+
   const [logs, setLogs] = useState([]);
   const [highlight, setHighlight] = useState({ indices: [] });
   const [range, setRange] = useState(null);
@@ -149,7 +149,6 @@ export default function App() {
     }
     
     runningRef.current = true;
-    setRunning(true);
     
     while (runningRef.current && indexRef.current < actionsRef.current.length) {
       applyAction(actionsRef.current[indexRef.current++]);
@@ -157,7 +156,6 @@ export default function App() {
     }
     
     runningRef.current = false;
-    setRunning(false);
   };
 
   const step = () => {
@@ -173,7 +171,6 @@ export default function App() {
 
   const stop = () => {
     runningRef.current = false;
-    setRunning(false);
   };
 
   const reset = () => {
